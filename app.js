@@ -33,7 +33,7 @@ close.addEventListener('click', e => {
 
 let score = getId('score');//grab score
 
-//main function
+//pick one
 function display(choice){
 
   let currentScore = 3;
@@ -107,7 +107,7 @@ continueBtn.addEventListener('click', e => {
     } else if(score.innerHTML === '6') {
       
     finish.style.display = 'flex';
-    endResult.innerHTML = 'YOU WIN!';
+    endResult.innerHTML = 'YOU WIN!🥳';
     continueBtn.style.display = 'none';
     
     } else if(score.innerHTML === '0'){
@@ -118,12 +118,21 @@ continueBtn.addEventListener('click', e => {
   }
 })
 
-paper.addEventListener('click', e => display('paper'));
-rock.addEventListener('click', e => display('rock'));
-scissors.addEventListener('click', e => display('scissors'));
+paper.addEventListener('click', e => {
+  display('paper')
+});
+rock.addEventListener('click', e => {
+  display('rock')
+});
+scissors.addEventListener('click', e => {
+  display('scissors')
+});
 
 //restart the game
-query('.replay').addEventListener('click', e => msg.style.display = 'flex'); 
+query('.replay').addEventListener('click', e => {
+  msg.style.display = 'flex';
+  overlay.style.display = 'block';
+}) 
 
 query('.reload').addEventListener('click', e => window.location.reload(true));
 
