@@ -53,7 +53,8 @@ header p{
     left: 50%;
     transform: translate(-50%, -55%);
     display: flex;
-    width: 100%;
+    width: 100vw;
+    width: 100vw;
     max-width: 800px;
     justify-content: center;
     align-items: space-around;
@@ -69,15 +70,12 @@ header p{
     margin: 4rem;
 }
 .main-1 .choice{
-    height: 24vh;
-    width: 24vh;
+    height: 18vh;
+    width: 22vh;
 }
 .result .choice{
-    height: 30vh;
-    width: 40vh;
-}
-.choice, .button, #close{
-    cursor: pointer;
+    height: 29vh;
+    width: 29vh;
 }
 .choice-text{
     text-align: center;
@@ -91,7 +89,6 @@ header p{
     to{ transform: scale(1);}
 }
 .button{
-    position: absolute;
     border-radius: 7px;
     border: 1.5px solid white;
     padding: .4rem 1.2rem;
@@ -109,29 +106,6 @@ header p{
     align-items: center;
     color: white;
 }
-.add-score{
-    margin: .5rem;
-    position: absolute;
-    top: 25%;
-    left: 41%;
-    z-index: 1;
-    animation: disappear 2.5s linear forwards;
-    display: none;
-}
-@keyframes disappear{
-    10%{
-        transform: scale(1.6);
-        opacity: 1;
-    }
-    50%{
-        transform: translatey(-20px) scale(.8);
-        opacity: .6;
-    }
-    100%{
-        transform: scale(.4) translatey(-30px);
-        opacity: 0;
-    }
-}
 .finish{
   display: none;
   transition: 1s ease;
@@ -147,6 +121,9 @@ header p{
     text-decoration: none;
     color: black;
     text-align: center;
+}
+.la-heart{
+  animation: button .6s linear infinite;
 }
 /* alert */
 .alert{
@@ -166,12 +143,27 @@ header p{
   background-color: white;
   z-index: 1;
   border-radius: 10px;
-  animation: alert .5s ease-out;
+  animation:  alert .5s ease-out;
   padding: 0 .6rem;
 }
 .msg{
   height: 30vh;
-  width: 50vw;
+  width: 70vw;
+  padding: 0;
+  justify-content: space-between;
+}
+.msg .alert-nav, .msg h2{
+  background: var(--border);
+  height: 20%;
+  width: 100%;
+  margin: 0;
+  border-radius: 10px 10px 0 0;
+  color: white !important;
+}
+.msg #goodluck, .msg h3{
+  border-radius: 0 0 10px 10px;
+  padding: 1rem .6rem;
+  text-align: center;
 }
 .overlay{
   display: none;
@@ -203,6 +195,7 @@ header p{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 .6rem;
     margin: .5rem;
     width: 100%;
     font-size: 1.05rem;
@@ -212,6 +205,7 @@ header p{
     width: 2rem;
     border: 2px solid var(--border);
     padding: .4rem;
+    background: white;
     border-radius: 50%;
 }
 .alert-nav h2, .alert p{
@@ -221,50 +215,59 @@ header p{
     margin: .7rem 0;
 }
 footer{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    margin-top: 1rem;
-    left: 0;
-    bottom: 0;
-    position: fixed;
-    flex-wrap: wrap;
-    color: white;
-    width: 100vw;
-  }
-  footer *{
-    margin: .3rem 1rem;
-  }
-  .socials{
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.3rem;
-  }
-  .socials *:hover{
-    transform: scale(1.2);
-  }
-  .socials *{
-    margin: 0 .4rem;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 .5rem;
+  width: 100vw;
+  max-width: 100vw;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.footer{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: white;
+}
+.footer *{
+  margin: .3rem .5rem;
+}
+.socials{
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  transition: .6s;
+}
+.socials *:hover{
+  transform: scale(1.2);
+}
+.socials *{
+  margin: 0 .4rem;
+}
 @media (min-width: 760px){
-    body{
-        font-size: 16px;
-    }
-    #logo{
-        height: 70px;
-    }
-    .main-1 .choice{
-        height: 37%;
-        width: 37%;
-    }
-    footer{
-    flex-direction: row;
-    position: fixed;
-    margin-top: 1rem;
-    flex-wrap: nowrap;
+  body{
+      font-size: 16px;
   }
-  footer *{
+  #logo{
+      height: 70px;
+  }
+  .main-1 .choice{
+      height: 37%;
+      width: 37%;
+  }
+  .footer{
+  flex-direction: row;
+  margin-top: 1rem;
+  flex-wrap: nowrap;
+  }
+  .choice, .button, #close{
+    cursor: pointer;
+  }
+  .footer *{
     margin: .5rem;
   }   
 }
