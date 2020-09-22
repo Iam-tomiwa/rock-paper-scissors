@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=7,8,edge">
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="description" content="A cool rock, paper, scissors game" />
+  <meta property="og:title" content="Rock, Paper, Scissors Game" />
+  <meta property="og:description" content="A cool rock, paper, scissors game" />
+  <meta property="og:url" content="https://roshambo.vercel.app/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@i_am_ajayii" />
+  <meta name="twitter:title" content="Rock, Paper, Scissors Game" />
+  <meta name="twitter:description" content="A cool rock, paper, scissors game" />
+  <meta name="twitter:image" content="https://roshambo.vercel.app/images/alert.jpg" />
+  <meta name="twitter:image:alt" content="rps's logo" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <meta name="keywords" content="rock, paper, scissors, game, cool, roshambo" />
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/line-awesome@1.3.0/dist/line-awesome/css/line-awesome.min.css"> 
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="images/logo.svg" id="logo" alt="Rock, Paper, Scissors logo" srcset="images/logo.svg">
+    <div class="score-container">
+      <p>Score</p>
+      <h1 id="score">3</h1>
+    </div>
+  </header>
+  <div class="container">
+    <section class="main main-1">
+      <img src="images/paper.png" alt="paper" class="choice choose paper">
+      <img src="images/scissors.png" alt="scissors" class="choice scissors">
+      <img src="images/rock.png" alt="rock" class="choice rock">
+    </section>
+    <h1>Pick One...</h1>
+
+  </div>
+
+  <section class="main-2 main">
+    <div class="result user">
+      <h3 class="choice-text user-text">YOU PICKED</h3>
+      <img src="images/empty.png" alt="" class="choice picked">
+    </div>
+    <div class="result computer">
+      <h3 class="choice-text">THE HOUSE PICKED</h3>
+      <img src="images/empty.png" alt="" class="choice random">
+    </div>
+    <div class="result finish">
+      <h2 class="end"></h2>
+      <a href="#" class="replay main-btn" >PLAY AGAIN</a>
+    </div>
+      <a href="#" class="main-btn continue" >CONTINUE</a>
+  </section>
+  <p class="button">Rules</p>
+  <div class="overlay"></div>
+  <div class="rules alert">
+    <div class="alert-nav">
+      <h2>Rules:</h2>
+      <img src="images/icon-close.svg" id="close"  alt="close icon">
+    </div>
+  <img src="images/image-rules.svg" height="60%" width="80%" alt="Rules">
+  <p>You win when your score reaches 6 
+    <br> You lose when your score reaches 0
+  </p>
+  </div>
+  <div class="alert msg">
+    <div class="alert-nav">
+      <h2>Hii!!</h2>
+      <img src="images/icon-close.svg" id="close" class="reload" alt="close icon">
+    </div>
+    <h3>Thanks a lot for playing my game. Hope you liked it? Pls do well to give this project a star <a href="https://github.com/Iam-tomiwa/rock-paper-scissors">right here on github</a> and also <a href="https://www.twitter.com/I_am_Ajayii/">retweet on twitter</a>🥺
+    </h3>
+  </div>
+  <footer class="footer-1" id="footer">
+    <p>Developed with<i class="fa fa-heart"></i>by Tomiwa</p>
+    <div class="socials">
+      <a href="https://wa.me/+2348154050552"><i class="fab fa-whatsapp icons"></i></a>
+      <a href="#"><i class="fab fa-facebook icons"></i></a>
+      <a href="https://github.com/Iam-tomiwa"><i class="fab fa-github icons"></i></a>
+      <a href="https://www.twitter.com/I_am_Ajayii/"><i class="fab fa-twitter icons"></i></a>
+      <a href="https://www.instagram.com/_micro_dev/"><i class="fab fa-instagram icons"></i></a>  
+    </div>
+    <p>&copy; 2020 | Roshambo</p>
+  </footer> 
+  <script src="app.js"></script>
+</body>
+</html>
