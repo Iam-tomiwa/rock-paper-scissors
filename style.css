@@ -241,7 +241,7 @@ footer{
 .socials *:hover{
   transform: scale(1.2);
 }
-.socials *{
+.socials *, footer a{
   color: white;
 }
 @media (min-width: 760px){
