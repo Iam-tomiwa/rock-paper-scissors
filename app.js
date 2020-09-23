@@ -107,7 +107,7 @@ continueBtn.addEventListener('click', e => {
     } else if(score.innerHTML === '6') {
       
     finish.style.display = 'flex';
-    endResult.innerHTML = 'YOU WIN!🥳';
+    endResult.innerHTML = 'YOU WIN!!';
     continueBtn.style.display = 'none';
     
     } else if(score.innerHTML === '0'){

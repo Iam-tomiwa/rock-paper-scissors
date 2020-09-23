@@ -84,6 +84,10 @@ header p{
 .choice:active, .button:active, .main-btn:active{
     animation: button .5s linear;
 }
+.fa-heart{
+  animation: button .5s ease-in-out infinite;
+  color: red;
+}
 @keyframes button{
     from{ transform: scale(0.85);}
     to{ transform: scale(1);}
@@ -231,19 +235,13 @@ footer{
   color: white;
 }
 .footer *{
-  margin: .3rem .5rem;
-}
-.socials{
-  display: flex;
-  justify-content: space-between;
-  font-size: 1.3rem;
-  transition: .6s;
+  margin: .3rem .3rem;
 }
 .socials *:hover{
   transform: scale(1.2);
 }
 .socials *{
-  margin: 0 .4rem;
+  color: white;
 }
 @media (min-width: 760px){
   body{
