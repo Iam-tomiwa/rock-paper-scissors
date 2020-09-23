@@ -13,7 +13,6 @@ const scissors = query('.scissors');
 const rock = query('.rock');
 const picked = query('.picked');
 const random = query('.random');
-const choose = document.querySelectorAll('.choose');
 const main2 = query('.main-2');
 const finish = query('.finish');
 const userText = query('.user-text');

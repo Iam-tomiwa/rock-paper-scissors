@@ -202,7 +202,7 @@ header p{
     width: 100%;
     font-size: 1.05rem;
 }
-#close{
+.close{
     height: 2rem;
     width: 2rem;
     border: 2px solid var(--border);
@@ -260,7 +260,7 @@ footer{
   margin-top: 1rem;
   flex-wrap: nowrap;
   }
-  .choice, .button, #close{
+  .choice, .button, .close{
     cursor: pointer;
   }
   .footer *{
