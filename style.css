@@ -98,7 +98,7 @@ header p{
     margin: 1rem;
 }
 .container .choice-wrapper{
-  cursor: url('images/cursor.svg');
+  cursor: url('images/paper.svg'), auto;
 }
 .choice-wrapper::before{
   content: '';
@@ -359,12 +359,15 @@ footer{
 }
 @media (min-width: 1000px){
   .rotate-wrap{
-    max-width: 1000px;
+    max-width: 700px;
+  }
+  .main-1{
+    background-size: 50% 50%;
   }
   .choice-wrapper{
     height: 23vh;
     width: 23vh;
-    margin: 5% 8%;
+    margin: 5% 7%;
 }
 .choice-wrapper::before{
   content: '';
