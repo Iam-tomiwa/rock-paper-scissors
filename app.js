@@ -48,6 +48,7 @@ let score = getId('score');//grab score
 //pick one
 function display(choice){
 
+  main2.classList.remove('fade')
   container.classList.add('rotate');
   let currentScore = 3;
   
@@ -58,7 +59,7 @@ function display(choice){
     picked.src = `images/icon-${choice}.svg`;
     picked.alt = `${choice}`;
     picked.parentElement.style.cssText = bg(choice);
-  }, 600);
+  }, 400);
   
   setTimeout(computer, 1800);//a little loading time
 
@@ -116,8 +117,10 @@ function display(choice){
 //continue playing until a limit score is reached
 let continueBtn = query('.continue');
 
-continueBtn.addEventListener('click', e => {
+continueBtn.addEventListener('click', e => {   
+    main2.classList.add('fade');
    
+   setTimeout(function() {
     if(score.innerHTML < '6' && score.innerHTML >= '1') {
       
     userText.style.color = 'white';
@@ -137,6 +140,7 @@ continueBtn.addEventListener('click', e => {
     endResult.innerHTML = 'YOU LOSE😟';
     continueBtn.style.display = 'none';
   }
+   }, 400);
 })
 
 paper.addEventListener('click', e => {
