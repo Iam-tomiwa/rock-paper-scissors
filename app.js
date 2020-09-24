@@ -30,36 +30,58 @@ close.addEventListener('click', e => {
   overlay.style.display = 'none';
 })
 
+
+function bg(clicked){
+  switch (clicked) {
+    case 'rock':
+      return 'background-image: linear-gradient(#dc2e4e, #dd405d); box-shadow: 0px 8px 0px -1px #991635;'
+      
+      case 'paper':
+        return 'background-image: linear-gradient(#4865f4, #5671f5); box-shadow: 0px 8px 0px -1px #2642bf;';
+      case 'scissors':
+        return 'background-image: linear-gradient(#ec9e0e, #eca922); box-shadow: 0px 8px 0px -1px #cc6d1b;';
+  }
+}
+
 let score = getId('score');//grab score
 
 //pick one
 function display(choice){
 
+  container.classList.add('rotate');
   let currentScore = 3;
-  main2.style.display = 'flex';
-  container.style.display = 'none';
-  picked.src = `images/${choice}.png`;
-  picked.alt = `${choice}`;
-
-  setTimeout(computer, 2000);//a little loading time
+  
+  setTimeout(function() {
+    container.classList.remove('rotate');
+    container.style.display = 'none';
+    main2.style.display = 'flex';
+    picked.src = `images/icon-${choice}.svg`;
+    picked.alt = `${choice}`;
+    picked.parentElement.style.cssText = bg(choice);
+  }, 600);
+  
+  setTimeout(computer, 1800);//a little loading time
 
   function computer(){
     let randomNum = Math.floor(Math.random() * Math.floor(3));
     switch (randomNum) {
       case 0:
         // code
-        random.src = 'images/paper.png';
+        random.src = 'images/icon-paper.svg';
+        random.parentElement.style.cssText = bg('paper');
         random.alt = 'paper';
         break;
       case 1:
         // code
-        random.src = 'images/rock.png';
+        random.parentElement.style.cssText = bg('rock');
+        random.src = 'images/icon-rock.svg';
         random.alt = 'rock';
         break;
       case 2:
         // code 
+        random.parentElement.style.cssText = bg('scissors');
         random.alt = 'scissors';
-        random.src = 'images/scissors.png';
+        random.src = 'images/icon-scissors.svg';
         break;
     }
 
@@ -95,7 +117,7 @@ function display(choice){
 let continueBtn = query('.continue');
 
 continueBtn.addEventListener('click', e => {
-    
+   
     if(score.innerHTML < '6' && score.innerHTML >= '1') {
       
     userText.style.color = 'white';

@@ -28,35 +28,47 @@
   <header>
     <img src="images/logo.svg" id="logo" alt="Rock, Paper, Scissors logo" srcset="images/logo.svg">
     <div class="score-container">
-      <p>Score</p>
+      <p>SCORE</p>
       <h1 id="score">3</h1>
     </div>
   </header>
-  <div class="container">
+  <div class="rotate-wrap">
+    <div class="container wrapper">
     <section class="main main-1">
-      <img src="images/paper.png" alt="paper" class="choice choose paper">
-      <img src="images/scissors.png" alt="scissors" class="choice choose scissors">
-      <img src="images/rock.png" alt="rock" class="choice choose rock">
+      <div class="choice-wrapper paper">
+      <img src="images/icon-paper.svg" alt="paper" class="choice">
+      </div>
+      <div class="choice-wrapper scissors">
+      <img src="images/icon-scissors.svg" alt="scissors" class="choice">
+      </div>
+      <div class="choice-wrapper rock">
+      <img src="images/icon-rock.svg" alt="rock" class="choice">
+      </div>
     </section>
-    <h1>Pick One...</h1>
-
+  </div>
   </div>
 
-  <section class="main-2 main">
+  <div class="wrapper">
+      <section class="main-2 main">
     <div class="result user">
       <h3 class="choice-text user-text">YOU PICKED</h3>
-      <img src="images/empty.png" alt="" class="choice picked">
+      <div class="choice-wrapper">
+      <img src="" alt="" class="choice picked">
+      </div>
     </div>
     <div class="result computer">
       <h3 class="choice-text">THE HOUSE PICKED</h3>
-      <img src="images/empty.png" alt="" class="choice random">
+      <div class="choice-wrapper">
+      <img src="images/empty.png" alt="rock" class="choice random">
+      </div>
     </div>
     <div class="result finish">
-      <h2 class="end"></h2>
+      <h2 class="end">YOU LOSE</h2>
       <a href="#" class="replay main-btn" >PLAY AGAIN</a>
     </div>
       <a href="#" class="main-btn continue" >CONTINUE</a>
   </section>
+  </div>
   <div class="overlay"></div>
   <div class="rules alert">
     <div class="alert-nav">
