@@ -10,7 +10,7 @@
 }
 body{
     background-image: var(--bg-color);
-     height: 100vh; 
+    min-height: 100vh; 
     font-family: 'Barlow Semi Condensed', sans-serif;
     overflow-Y: auto;
     overflow-x: hidden;
