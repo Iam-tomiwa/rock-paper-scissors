@@ -314,7 +314,7 @@ footer{
   height: 75px;
 }
 }
-@media (min-width: 800px){
+@media (min-width: 700px){
   body{
       font-size: 16px;
   }
@@ -331,8 +331,8 @@ footer{
       height: 70px;
   }
   .choice-wrapper{
-      height: 15vh;
-      width: 15vh;
+      height: 16vh;
+      width: 16vh;
       margin: 4vh;
   }
   .footer{
@@ -355,7 +355,8 @@ footer{
     background-size: 50% 50%;
   }
   .choice-wrapper{
-    height: 140px;
-    width: 140px;
+    height: 150px;
+    width: 150px;
+    margin: 4vw;
 }
 }
