@@ -87,8 +87,8 @@ header p{
 .main-1 .choice-wrapper{
   align-self: center;
   justify-self: center;
-  height: 70%;
-  width: 70%;
+  height: 110px;
+  width: 110px;
 }
 .rotate{
   animation: spin .4s linear;
@@ -329,6 +329,10 @@ footer{
   .main-2 .choice-wrapper{
     height: 20vh;
     width: 20vh;
+  }
+  .main-1 .choice-wrapper{
+    height: 70%;
+    width: 70%;
   }
   footer{
     position: fixed;
