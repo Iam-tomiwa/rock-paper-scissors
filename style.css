@@ -10,7 +10,7 @@
 }
 body{
     background-image: var(--bg-color);
-    /* max-height: 100vh; */
+     height: 100vh; 
     font-family: 'Barlow Semi Condensed', sans-serif;
     overflow-Y: auto;
     overflow-x: hidden;
@@ -26,7 +26,7 @@ header{
     width: 90vw;
     max-width: 650px;
     padding: 2%;
-    margin: 4% auto 0 auto;
+    margin: 3vh auto;
 }
 #logo{
     height: 55px;
@@ -37,11 +37,12 @@ header{
     padding: .4rem 1.3rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 header p{
     color: hsl(229, 64%, 46%);
+    font-size: .8rem;
 }
 #score{
     color: hsl(229, 25%, 31%);
@@ -49,26 +50,45 @@ header p{
 }
 
 /* main div */
-.main{
-  display: flex;
-  justify-content: center;
-  align-items: space-around;
-  margin: 7% auto;
-  flex-wrap: wrap;
-  width: 100vw;
-  max-width: 650px;
-}
-.container{
-  position: relative;
+.main{ 
+  margin: 7vh auto;
 }
 .main-2{
-    display: none;
+  max-width: 800px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-around;
+  display: none;
 }
 .main-1{
   background: url("images/bg-triangle.svg");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 60% 60%;
+  background-size: 70% 70%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: auto;
+  grid-template-areas: "paper . scissors"
+  ". rock .";
+  height: 60vh;
+  width: 90vw;
+  max-width: 500px;
+  position: relative;
+}
+.main-1 .paper{
+  grid-area: paper;
+}
+.main-1 .scissors{
+  grid-area: scissors;
+}
+.main-1 .rock{
+  grid-area: rock;
+}
+.main-1 .choice-wrapper{
+  align-self: center;
+  justify-self: center;
+  height: 70%;
+  width: 70%;
 }
 .rotate{
   animation: spin .4s linear;
@@ -98,22 +118,26 @@ header p{
     opacity: 0;
   }
 }
+.main-2 .choice-wrapper{
+  height: 18vh;
+  width: 18vh;
+  margin: initial 0;
+}
 .choice-wrapper{
-  width: 130px;
-  height: 130px;
+  position: relative;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1rem;
+  margin: 1.5rem 0;
 }
 .container .choice-wrapper{
   cursor: url('images/paper.svg'), auto;
 }
 .choice-wrapper::before{
   content: '';
-  width: 100px;
-  height: 100px;
+  width: 70%;
+  height: 70%;
   background: white;
   box-shadow: inset 0px 7px 1px #b1b3b3e8;
   position: absolute;
@@ -122,7 +146,7 @@ header p{
 }
 .choice{
   width: 35%;
-  height: 35%;
+  height: 39%;
   z-index: 2;
 }
 .paper{ 
@@ -160,14 +184,14 @@ header p{
   to{ transform: scale(1);}
 }
 .button{
-  transition: .6s;
+    transition: .6s;
+    font-size: 1rem;
     border-radius: 7px;
-    border: 1.5px solid white;
+    border: 1.5px solid var(--border);
     padding: .4rem 1.5rem;
     color: white;
 }
 .result{
-    min-height: 60%;
     width: 47%;
     display: flex;
     flex-direction: column;
@@ -184,7 +208,8 @@ header p{
 .end{
     text-align: center;
     font-size: 2.3rem;
-    display: inline-block;
+    display: block;
+    font-weight: 700;
 }
 .main-btn{
   transition: .6s;
@@ -195,6 +220,9 @@ header p{
   text-decoration: none;
   color: black;
   text-align: center;
+  letter-spacing: 1.5px;
+  font-size: .8rem;
+  font-weight: 500;
 }
   .continue{
     width: 40%;
@@ -218,7 +246,7 @@ header p{
   background-color: white;
   z-index: 10;
   border-radius: 10px;
-  animation:  fade .5s ease-out reverse;
+  animation:  fade .4s ease-out reverse;
   padding: 0 .6rem;
 }
 .msg{
@@ -275,13 +303,10 @@ header p{
 footer{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   padding: 0 .5rem;
   width: 100vw;
   max-width: 100vw;
-  position: fixed;
-  left: 0;
-  bottom: 0;
 }
 .footer{
   display: flex;
@@ -289,6 +314,7 @@ footer{
   align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 7vh;
 }
 .footer, .footer a{
   color: white;
@@ -296,47 +322,30 @@ footer{
 .footer *{
   margin: .3rem .3rem;
 }
-@media (max-width: 320px){
-.choice-wrapper{
-    height: 100px;
-    width: 100px;
-    margin: 5% 7%;
-}
-.choice-wrapper::before{
-  content: '';
-  width: 75px;
-  height: 75px;
-}
-footer{
-  position: relative;
-  margin-top: 20%;
-}
-}
-@media (min-width: 460px){
+@media (min-width: 750px){
   body{
-      font-size: 16px;
+    font-size: 16px;
+  }
+  .main-2 .choice-wrapper{
+    height: 20vh;
+    width: 20vh;
+  }
+  footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
   }
   .finish{
-    width: 30%;
+    width: 40%;
   }
   .continue{
-    width: 30%;
+    width: 40%;
   }
   #logo{
       height: 70px;
   }
-  .choice-wrapper{
-      height: 33vw;
-      width: 33vw;
-  }
-  .choice-wrapper::before{
-    content: '';
-    width: 25vw;
-    height: 25vw;
-  }
   .footer{
   flex-direction: row;
-  margin-top: 1rem;
   flex-wrap: nowrap;
   }
   .button, .close{
@@ -344,24 +353,5 @@ footer{
   }
   .footer *{
     margin: .5rem;
-  }   
-}
-@media (min-width: 1000px){
-  .main{
-    max-width: 650px;
-    margin: .5rem auto;
-  }
-  .main-1{
-    background-size: 50% 50%;
-  }
-  .choice-wrapper{
-    height: 20vh;
-    width: 20vh;
-    margin: 5% 7%;
-}
-.choice-wrapper::before{
-  content: '';
-  width: 16vh;
-  height: 16vh;
-}
+  } 
 }
