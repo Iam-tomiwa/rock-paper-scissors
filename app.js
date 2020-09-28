@@ -3,161 +3,138 @@ const getId = (e) => document.getElementById(e);
 const query = (e) => document.querySelector(e);
 
 //grab all my elements here
-const rules = query('.rules');
-const button = query('.button');
-const overlay = query('.overlay');
-const close = getId('close');
-const container = query('.container');
-const paper = query('.paper');
-const scissors = query('.scissors');
-const rock = query('.rock');
-const picked = query('.picked');
-const random = query('.random');
-const main2 = query('.main-2');
-const finish = query('.finish');
-const userText = query('.user-text');
-const endResult = query('.end');
-const msg = query('.msg');
+const rules = query(".rules");
+const button = query(".button");
+const overlay = query(".overlay");
+const close = getId("close");
+const selectSection = query(".selectSection");
+const userChoice = document.querySelectorAll(".userChoice");
+const userPicked = query(".user-picked");
+const computerSelect = query(".computerSelect");
+const resultSection = query(".main-2");
+const finish = query(".finish");
+const userText = query(".user-text");
+const endResult = query(".end");
+const msg = query(".msg");
 
-//rules display
-button.addEventListener('click', e => {
-  rules.style.display = 'flex';
-  overlay.style.display = 'block';
-})
- 
-close.addEventListener('click', e => {
-  rules.style.display = 'none';
-  overlay.style.display = 'none';
-})
+//rules display buttons
+button.addEventListener("click", (e) => {
+  rules.style.display = "flex";
+  overlay.style.display = "block";
+});
 
+close.addEventListener("click", (e) => {
+  rules.style.display = "none";
+  overlay.style.display = "none";
+});
 
-function bg(clicked){
-  switch (clicked) {
-    case 'rock':
-      return 'background-image: linear-gradient(#dc2e4e, #dd405d); box-shadow: 0px 8px 0px -1px #991635;'
-      
-      case 'paper':
-        return 'background-image: linear-gradient(#4865f4, #5671f5); box-shadow: 0px 8px 0px -1px #2642bf;';
-      case 'scissors':
-        return 'background-image: linear-gradient(#ec9e0e, #eca922); box-shadow: 0px 8px 0px -1px #cc6d1b;';
-  }
-}
+let score = getId("score"); //grab score
 
-let score = getId('score');//grab score
-
-//pick one
-function display(choice){
-
-  main2.classList.remove('fade')
-  container.classList.add('rotate');
+//displays selected elements
+function gameOn(e) {
+  resultSection.classList.remove("fade");
+  selectSection.classList.add("rotate");
   let currentScore = 3;
-  
-  setTimeout(function() {
-    container.classList.remove('rotate');
-    container.style.display = 'none';
-    main2.style.display = 'flex';
-    picked.src = `images/icon-${choice}.svg`;
-    picked.alt = `${choice}`;
-    picked.parentElement.style.cssText = bg(choice);
-  }, 400);
-  
-  setTimeout(computer, 1800);//a little loading time
 
-  function computer(){
-    let randomNum = Math.floor(Math.random() * Math.floor(3));
-    switch (randomNum) {
+  setTimeout(() => {
+    selectSection.style.display = "none";
+    resultSection.style.display = "flex";
+    userPicked.src = e.target.src;
+    userPicked.alt = e.target.alt;
+    selectSection.classList.remove("rotate");
+  }, 700);
+
+  userPicked.parentElement.classList.add(e.target.alt);
+
+  setTimeout(computer, 1600); //a little loading time until computer function runs
+  
+  //the brain processing of the game is on this function!
+  function computer() {
+    let randomNumber = Math.floor(Math.random() * Math.floor(3));//generate random number from 0-3
+    switch (randomNumber) {
       case 0:
         // code
-        random.src = 'images/icon-paper.svg';
-        random.parentElement.style.cssText = bg('paper');
-        random.alt = 'paper';
+        computerSelect.src = "images/icon-paper.svg";
+        computerSelect.parentElement.classList.add("paper");
+        computerSelect.alt = "paper";
         break;
       case 1:
         // code
-        random.parentElement.style.cssText = bg('rock');
-        random.src = 'images/icon-rock.svg';
-        random.alt = 'rock';
+        computerSelect.parentElement.classList.add("rock");
+        computerSelect.src = "images/icon-rock.svg";
+        computerSelect.alt = "rock";
         break;
       case 2:
-        // code 
-        random.parentElement.style.cssText = bg('scissors');
-        random.alt = 'scissors';
-        random.src = 'images/icon-scissors.svg';
+        // code
+        computerSelect.parentElement.classList.add("scissors");
+        computerSelect.alt = "scissors";
+        computerSelect.src = "images/icon-scissors.svg";
         break;
     }
-
-    if ((randomNum === 0 && picked.alt === 'paper') || 
-    (randomNum === 1 && picked.alt === 'rock') || 
-    (randomNum === 2 && picked.alt === 'scissors')) {
-      
+  
+    if (
+      (randomNumber === 0 && userPicked.alt === "paper") ||
+      (randomNumber === 1 && userPicked.alt === "rock") ||
+      (randomNumber === 2 && userPicked.alt === "scissors")
+    ) {
       currentScore = currentScore;
       score.innerHTML = score.innerHTML;
-      userText.style.color = 'hsl(39, 89%, 49%)';
-      
-    } else if((randomNum === 0 && picked.alt === 'scissors') ||
-     (randomNum === 1 && picked.alt === 'paper') || 
-     (randomNum === 2 && picked.alt === 'rock')) {
-      
+      userText.style.color = "hsl(39, 89%, 49%)";
+    } else if (
+      (randomNumber === 0 && userPicked.alt === "scissors") ||
+      (randomNumber === 1 && userPicked.alt === "paper") ||
+      (randomNumber === 2 && userPicked.alt === "rock")
+    ) {
       currentScore++;
       score.innerHTML++;
-      userText.style.color = 'green';
-      
-    }else if((randomNum === 0 && picked.alt === 'rock') || 
-    (randomNum === 1 && picked.alt === 'scissors') || 
-    (randomNum === 2 && picked.alt === 'paper')) {
-      
+      userText.style.color = "green";
+    } else if (
+      (randomNumber === 0 && userPicked.alt === "rock") ||
+      (randomNumber === 1 && userPicked.alt === "scissors") ||
+      (randomNumber === 2 && userPicked.alt === "paper")
+    ) {
       currentScore--;
       score.innerHTML--;
-      userText.style.color = 'red';
-
+      userText.style.color = "red";
     }
   }
 }
 
+
 //continue playing until a limit score is reached
-let continueBtn = query('.continue');
+let continueBtn = query(".continue");
 
-continueBtn.addEventListener('click', e => {   
-    main2.classList.add('fade');
-   
-   setTimeout(function() {
-    if(score.innerHTML < '6' && score.innerHTML >= '1') {
-      
-    userText.style.color = 'white';
-    container.style.display = 'flex';
-    main2.style.display = 'none';
-    random.src = 'images/empty.png';
-    
-    } else if(score.innerHTML === '6') {
-      
-    finish.style.display = 'flex';
-    endResult.innerHTML = 'YOU WIN!!';
-    continueBtn.style.display = 'none';
-    
-    } else if(score.innerHTML === '0'){
-      
-    finish.style.display = 'flex';
-    endResult.innerHTML = 'YOU LOSE😟';
-    continueBtn.style.display = 'none';
-  }
-   }, 400);
-})
+continueBtn.addEventListener("click", (e) => {
 
-paper.addEventListener('click', e => {
-  display('paper')
+  resultSection.classList.add("fade"); //fade out effect for the result section
+
+  setTimeout(function () {
+    if (score.innerHTML < "6" && score.innerHTML >= "1") {
+      //first remove all classes to avoid conflict
+      userPicked.parentElement.classList.remove("paper", "rock", "scissors");
+      computerSelect.parentElement.classList.remove("paper", "rock", "scissors");
+      userText.style.color = "white";
+      selectSection.style.display = "flex";
+      resultSection.style.display = "none";
+      computerSelect.src = "images/empty.png";
+    } else if (score.innerHTML === "6") {
+      finish.style.display = "flex";
+      endResult.innerHTML = "YOU WIN!!";
+      continueBtn.style.display = "none";
+    } else if (score.innerHTML === "0") {
+      finish.style.display = "flex";
+      endResult.innerHTML = "YOU LOSE😟";
+      continueBtn.style.display = "none";
+    }
+  }, 600);
 });
-rock.addEventListener('click', e => {
-  display('rock')
-});
-scissors.addEventListener('click', e => {
-  display('scissors')
-});
+
+userChoice.forEach((selected) => selected.addEventListener("click", gameOn));
 
 //restart the game
-query('.replay').addEventListener('click', e => {
-  msg.style.display = 'flex';
-  overlay.style.display = 'block';
-}) 
+query(".replay").addEventListener("click", (e) => {
+  msg.style.display = "flex";
+  overlay.style.display = "block";
+});
 
-query('.reload').addEventListener('click', e => window.location.reload(true));
-
+query(".reload").addEventListener("click", (e) => window.location.reload(true));

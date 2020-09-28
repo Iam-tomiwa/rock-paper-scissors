@@ -1,101 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=7,8,edge">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="description" content="A cool rock, paper, scissors game" />
-  <meta property="og:title" content="Rock, Paper, Scissors Game" />
-  <meta property="og:description" content="A cool rock, paper, scissors game" />
-  <meta property="og:url" content="https://roshambo.vercel.app/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@i_am_ajayii" />
-  <meta name="twitter:creator" content="@i_am_ajayii" />
-  <meta name="twitter:title" content="Roshambo- A Rock, Paper, Scissors Game" />
-  <meta name="twitter:description" content="A cool rock, paper, scissors game" />
-  <meta name="twitter:image" content="https://roshambo.vercel.app/design/desktop-preview.jpg" />
-  <meta name="twitter:image:alt" content="rps's logo" />
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="manifest" href="favicon/site.webmanifest">
-  <meta name="keywords" content="rock, paper, scissors, game, cool, roshambo" />
-  <title>Rock Paper Scissors</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" type="text/css" media="all" />
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <img src="images/logo.svg" id="logo" alt="Rock, Paper, Scissors logo" srcset="images/logo.svg">
-    <div class="score-container">
-      <p>SCORE</p>
-      <h1 id="score">3</h1>
-    </div>
-  </header>
-    <div class="container wrapper">
-    <section class="main main-1">
-      <div class="choice-wrapper paper">
-      <img src="images/icon-paper.svg" alt="paper" class="choice">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7,8,edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="A cool rock, paper, scissors game" />
+    <meta property="og:title" content="Rock, Paper, Scissors Game" />
+    <meta
+      property="og:description"
+      content="A cool rock, paper, scissors game"
+    />
+    <meta property="og:url" content="https://roshambo.vercel.app/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@i_am_ajayii" />
+    <meta name="twitter:creator" content="@i_am_ajayii" />
+    <meta
+      name="twitter:title"
+      content="Roshambo- A Rock, Paper, Scissors Game"
+    />
+    <meta
+      name="twitter:description"
+      content="A cool rock, paper, scissors game"
+    />
+    <meta
+      name="twitter:image"
+      content="https://roshambo.vercel.app/design/desktop-preview.jpg"
+    />
+    <meta name="twitter:image:alt" content="rps's logo" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <meta
+      name="keywords"
+      content="rock, paper, scissors, game, cool, roshambo"
+    />
+    <title>Rock Paper Scissors</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"
+      type="text/css"
+      media="all"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <img
+        src="images/logo.svg"
+        id="logo"
+        alt="Rock, Paper, Scissors logo"
+        srcset="images/logo.svg"
+      />
+      <div class="score-container">
+        <p>SCORE</p>
+        <h1 id="score">3</h1>
       </div>
-      <div class="choice-wrapper scissors">
-      <img src="images/icon-scissors.svg" alt="scissors" class="choice">
-      </div>
-      <div class="choice-wrapper rock">
-      <img src="images/icon-rock.svg" alt="rock" class="choice">
-      </div>
-    </section>
-  </div>
+    </header>
+    <div class="selectSection wrapper">
+      <section class="main main-1">
+        <div class="choice-wrapper paper">
+          <img
+            src="images/icon-paper.svg"
+            alt="paper"
+            class="choice userChoice"
+          />
+        </div>
 
-  <div class="wrapper">
+        <div class="choice-wrapper scissors">
+          <img
+            src="images/icon-scissors.svg"
+            alt="scissors"
+            class="choice userChoice"
+          />
+        </div>
+
+        <div class="choice-wrapper rock">
+          <img
+            src="images/icon-rock.svg"
+            alt="rock"
+            class="choice userChoice"
+          />
+        </div>
+      </section>
+    </div>
+
+    <div class="wrapper">
       <section class="main-2 main">
-    <div class="result user">
-      <h3 class="choice-text user-text">YOU PICKED</h3>
-      <div class="choice-wrapper">
-      <img src="" alt="" class="choice picked">
+        <div class="result user">
+          <h3 class="choice-text user-text">YOU PICKED</h3>
+          <div class="choice-wrapper">
+            <img src="" alt="" class="choice user-picked" />
+          </div>
+        </div>
+
+        <div class="result computer">
+          <h3 class="choice-text">THE HOUSE PICKED</h3>
+          <div class="choice-wrapper">
+            <img
+              src="images/empty.png"
+              alt="rock"
+              class="choice computerSelect"
+            />
+          </div>
+        </div>
+
+        <div class="result finish">
+          <h2 class="end">YOU LOSE</h2>
+          <a href="#" class="replay main-btn">PLAY AGAIN</a>
+        </div>
+        <a href="#" class="main-btn continue">CONTINUE</a>
+      </section>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="rules alert">
+      <div class="alert-nav">
+        <h2>Rules:</h2>
+        <img
+          src="images/icon-close.svg"
+          id="close"
+          class="close"
+          alt="close icon"
+        />
       </div>
+      <img src="images/image-rules.svg" height="60%" width="80%" alt="Rules" />
+      <p>
+        You win when your score reaches 6 <br />
+        You lose when your score reaches 0
+      </p>
     </div>
-    <div class="result computer">
-      <h3 class="choice-text">THE HOUSE PICKED</h3>
-      <div class="choice-wrapper">
-      <img src="images/empty.png" alt="rock" class="choice random">
+
+    <div class="alert msg">
+      <div class="alert-nav">
+        <h2>Yayy!</h2>
+        <img
+          src="images/icon-close.svg"
+          class="close reload"
+          alt="close icon"
+        />
       </div>
+      <h3>
+        Thanks a lot for playing my game. Hope you liked it? Pls do well to give
+        this project a star
+        <a href="https://github.com/Iam-tomiwa/rock-paper-scissors"
+          >right here on github</a
+        >
+        and also
+        <a href="https://www.twitter.com/I_am_Ajayii/">retweet on twitter</a>
+        xoxo <i class="fa fa-heart"></i>
+      </h3>
+      <h2 id="goodluck">Good luck</h2>
     </div>
-    <div class="result finish">
-      <h2 class="end">YOU LOSE</h2>
-      <a href="#" class="replay main-btn" >PLAY AGAIN</a>
-    </div>
-      <a href="#" class="main-btn continue" >CONTINUE</a>
-  </section>
-  </div>
-  <div class="overlay"></div>
-  <div class="rules alert">
-    <div class="alert-nav">
-      <h2>Rules:</h2>
-      <img src="images/icon-close.svg" id="close" class="close"  alt="close icon">
-    </div>
-  <img src="images/image-rules.svg" height="60%" width="80%" alt="Rules">
-  <p>You win when your score reaches 6 
-    <br> You lose when your score reaches 0
-  </p>
-  </div>
-  <div class="alert msg">
-    <div class="alert-nav">
-      <h2>Yayy!</h2>
-      <img src="images/icon-close.svg" class="close reload" alt="close icon">
-    </div>
-    <h3>Thanks a lot for playing my game. Hope you liked it? Pls do well to give this project a star <a href="https://github.com/Iam-tomiwa/rock-paper-scissors">right here on github</a> and also <a href="https://www.twitter.com/I_am_Ajayii/">retweet on twitter</a> xoxo <i class="fa fa-heart"></i>
-    </h3>
-    <h2 id="goodluck">Good luck</h2>
-  </div>
-  <footer>
-    <div class="footer">
-    <p>Developed with<i class="fa fa-heart"></i><a href="http://www.twitter.com/I_am_Ajayii/" target="_blank"> by Tomiwa</a>,
-    Challenge by <a href="http://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH" target="_blank">Front-End Mentor</a>
-    </p>
-    <p>&copy; 2020 | Roshambo</p>
-    </div>
-    <p class="button">Rules</p>
-  </footer> 
-  <script src="app.js"></script>
-</body>
+
+    <footer>
+      <div class="footer">
+        <p>
+          Developed with<i class="fa fa-heart"></i
+          ><a href="http://www.twitter.com/I_am_Ajayii/" target="_blank">
+            by Tomiwa</a
+          >, Challenge by
+          <a
+            href="http://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH"
+            target="_blank"
+            >Front-End Mentor</a
+          >
+        </p>
+      </div>
+      <p class="button">RULES</p>
+    </footer>
+    <script src="app.js"></script>
+  </body>
 </html>
