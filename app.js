@@ -95,7 +95,7 @@ function gameOn(e) {
     ) {
       currentScore--;
       score.innerHTML--;
-      userText.style.color = "red";//remove 1 from current csore
+      userText.style.color = "red";//remove 1 from current score
     }
   }
 }
