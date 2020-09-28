@@ -28,13 +28,14 @@ close.addEventListener("click", (e) => {
   overlay.style.display = "none";
 });
 
-let score = getId("score"); //grab score
+let score = getId("score"); //grab score from score board
 
 //displays selected elements
 function gameOn(e) {
+  userPicked.parentElement.classList.add(e.target.alt);
   resultSection.classList.remove("fade");
   selectSection.classList.add("rotate");
-  let currentScore = 3;
+  let currentScore = 3;// a variable to keep my score for later edit 
 
   setTimeout(() => {
     selectSection.style.display = "none";
@@ -42,11 +43,10 @@ function gameOn(e) {
     userPicked.src = e.target.src;
     userPicked.alt = e.target.alt;
     selectSection.classList.remove("rotate");
-  }, 700);
+  }, 700);//a timeout to enable the rotate animation finish
 
-  userPicked.parentElement.classList.add(e.target.alt);
 
-  setTimeout(computer, 1600); //a little loading time until computer function runs
+  setTimeout(computer, 1600); //a little loading time to delay computer function runs
   
   //the brain processing of the game is on this function!
   function computer() {
@@ -79,7 +79,7 @@ function gameOn(e) {
     ) {
       currentScore = currentScore;
       score.innerHTML = score.innerHTML;
-      userText.style.color = "hsl(39, 89%, 49%)";
+      userText.style.color = "hsl(39, 89%, 49%)";//keep scores as a draw
     } else if (
       (randomNumber === 0 && userPicked.alt === "scissors") ||
       (randomNumber === 1 && userPicked.alt === "paper") ||
@@ -87,7 +87,7 @@ function gameOn(e) {
     ) {
       currentScore++;
       score.innerHTML++;
-      userText.style.color = "green";
+      userText.style.color = "green";//add 1 to current score
     } else if (
       (randomNumber === 0 && userPicked.alt === "rock") ||
       (randomNumber === 1 && userPicked.alt === "scissors") ||
@@ -95,7 +95,7 @@ function gameOn(e) {
     ) {
       currentScore--;
       score.innerHTML--;
-      userText.style.color = "red";
+      userText.style.color = "red";//remove 1 from current csore
     }
   }
 }
@@ -129,12 +129,14 @@ continueBtn.addEventListener("click", (e) => {
   }, 600);
 });
 
+//events listener for each user choice to initialise gameOn function 
 userChoice.forEach((selected) => selected.addEventListener("click", gameOn));
 
-//restart the game
+//display a messsage before reloading th game
 query(".replay").addEventListener("click", (e) => {
   msg.style.display = "flex";
   overlay.style.display = "block";
 });
 
+//reload the game on pressing close button
 query(".reload").addEventListener("click", (e) => window.location.reload(true));
