@@ -82,12 +82,13 @@ header p {
   justify-content: center;
 }
 .rotate {
-  animation: spin 0.7s ease-in 2;
+  animation: spin 0.7s ease-in ;
+  opacity: 0.7;
 }
 @keyframes spin {
   to {
     opacity: 0;
-    transform: rotate(360deg);
+    transform: rotate(400deg);
   }
 }
 .fade {
