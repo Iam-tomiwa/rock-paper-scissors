@@ -120,7 +120,7 @@ header p {
   content: "";
   width: 75%;
   height: 75%;
-  background: white;
+  background: #eeeeee;
   box-shadow: inset 0px 7px 1px #b1b3b3e8;
   position: absolute;
   z-index: 1;
