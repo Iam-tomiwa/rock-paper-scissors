@@ -35,7 +35,7 @@ function gameOn(e) {
   userPicked.parentElement.classList.add(e.target.alt);
   resultSection.classList.remove("fade");
   selectSection.classList.add("rotate");
-  let currentScore = 3;// a variable to keep my score for later edit 
+  let currentScore = 3; // a variable to keep my score for later edit
 
   setTimeout(() => {
     selectSection.style.display = "none";
@@ -43,14 +43,13 @@ function gameOn(e) {
     userPicked.src = e.target.src;
     userPicked.alt = e.target.alt;
     selectSection.classList.remove("rotate");
-  }, 700);//a timeout to enable the rotate animation finish
-
+  }, 700); //a timeout to enable the rotate animation finish
 
   setTimeout(computer, 1600); //a little loading time to delay computer function runs
-  
+
   //the brain processing of the game is on this function!
   function computer() {
-    let randomNumber = Math.floor(Math.random() * Math.floor(3));//generate random number from 0-3
+    let randomNumber = Math.floor(Math.random() * Math.floor(3)); //generate random number from 0-3
     switch (randomNumber) {
       case 0:
         // code
@@ -71,7 +70,7 @@ function gameOn(e) {
         computerSelect.src = "images/icon-scissors.svg";
         break;
     }
-  
+
     if (
       (randomNumber === 0 && userPicked.alt === "paper") ||
       (randomNumber === 1 && userPicked.alt === "rock") ||
@@ -79,7 +78,7 @@ function gameOn(e) {
     ) {
       currentScore = currentScore;
       score.innerHTML = score.innerHTML;
-      userText.style.color = "hsl(39, 89%, 49%)";//keep scores as a draw
+      userText.style.color = "hsl(39, 89%, 49%)"; //keep scores as a draw
     } else if (
       (randomNumber === 0 && userPicked.alt === "scissors") ||
       (randomNumber === 1 && userPicked.alt === "paper") ||
@@ -87,7 +86,7 @@ function gameOn(e) {
     ) {
       currentScore++;
       score.innerHTML++;
-      userText.style.color = "green";//add 1 to current score
+      userText.style.color = "green"; //add 1 to current score
     } else if (
       (randomNumber === 0 && userPicked.alt === "rock") ||
       (randomNumber === 1 && userPicked.alt === "scissors") ||
@@ -95,24 +94,26 @@ function gameOn(e) {
     ) {
       currentScore--;
       score.innerHTML--;
-      userText.style.color = "red";//remove 1 from current score
+      userText.style.color = "red"; //remove 1 from current score
     }
   }
 }
-
 
 //continue playing until a limit score is reached
 let continueBtn = query(".continue");
 
 continueBtn.addEventListener("click", (e) => {
-
   resultSection.classList.add("fade"); //fade out effect for the result section
 
   setTimeout(function () {
     if (score.innerHTML < "6" && score.innerHTML >= "1") {
       //first remove all classes to avoid conflict
       userPicked.parentElement.classList.remove("paper", "rock", "scissors");
-      computerSelect.parentElement.classList.remove("paper", "rock", "scissors");
+      computerSelect.parentElement.classList.remove(
+        "paper",
+        "rock",
+        "scissors"
+      );
       userText.style.color = "white";
       selectSection.style.display = "flex";
       resultSection.style.display = "none";
@@ -129,8 +130,10 @@ continueBtn.addEventListener("click", (e) => {
   }, 600);
 });
 
-//events listener for each user choice to initialise gameOn function 
-userChoice.forEach((selected) => selected.addEventListener("click", gameOn));
+//events listener for each user choice to initialise gameOn function
+userChoice.forEach((selected) =>
+  selected.addEventListener("click", gameOn, false)
+);
 
 //display a messsage before reloading th game
 query(".replay").addEventListener("click", (e) => {

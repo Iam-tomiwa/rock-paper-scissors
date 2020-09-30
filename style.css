@@ -15,6 +15,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   font-size: 13.5px;
+  user-select: none;
 }
 /* header */
 header {
@@ -24,8 +25,8 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 90vw;
-  max-width: 650px;
-  padding: 2%;
+  max-width: 550px;
+  padding: 2.5% 2%;
   margin: 3vh auto;
 }
 #logo {
@@ -54,22 +55,31 @@ header p {
   display: flex;
   justify-content: center;
   align-items: space-around;
-  margin: 12vh auto;
+  margin: 10vh auto 0 auto;
   flex-wrap: wrap;
   width: 100vw;
-  max-width: 650px;
-}
-.selectSection {
+  max-width: 600px;
   position: relative;
 }
 .main-2 {
   display: none;
 }
 .main-1 {
+  flex-direction: column;
   background: url("images/bg-triangle.svg");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 60% 60%;
+  background-size: 50% 60%;
+}
+.sp-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.rock-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .rotate {
   animation: spin 0.7s ease-in 2;
@@ -84,7 +94,7 @@ header p {
   animation: fade 0.5s ease-out;
 }
 @keyframes fade {
-  from{
+  from {
     opacity: 0.5;
   }
   to {
@@ -100,14 +110,15 @@ header p {
   align-items: center;
   justify-content: center;
   margin: 1.5rem 7vw;
+  position: relative;
 }
-.selectSection .choice-wrapper {
-  cursor: url("images/paper.svg"), auto;
+.selectSection .choice-wrapper img {
+  cursor: url("images/paper.svg"), pointer;
 }
 .choice-wrapper::before {
   content: "";
-  width: 100px;
-  height: 100px;
+  width: 75%;
+  height: 75%;
   background: white;
   box-shadow: inset 0px 7px 1px #b1b3b3e8;
   position: absolute;
@@ -139,7 +150,7 @@ header p {
   width: 120%;
   height: 120%;
 }
-.choice-wrapper:active,
+.choice-wrapper img:active,
 .button:active,
 .main-btn:active {
   animation: button 0.5s linear;
@@ -198,9 +209,9 @@ header p {
   text-decoration: none;
   color: black;
   text-align: center;
-  letter-spacing: 1.5px;
-  font-size: 0.8rem;
-  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  font-weight: 600;
 }
 .continue {
   width: 40%;
@@ -288,68 +299,42 @@ footer {
   padding: 0 0.5rem;
   width: 100vw;
   max-width: 100vw;
-  /*margin-top: 5vh;*/
-  position: sticky;
+  position: fixed;
   left: 0;
   bottom: 0.3rem;
+  z-index: -1;
 }
 .footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  flex-wrap: wrap;
 }
 .footer,
 .footer a {
   color: white;
 }
-.footer * {
-  margin: 0.3rem;
-}
 @media (max-width: 320px) {
   .choice-wrapper {
     height: 100px;
-    height: 100px;
-
     width: 100px;
     margin: 5% 7%;
   }
-  .choice-wrapper::before {
-    content: "";
-    width: 75px;
-    height: 75px;
-  }
 }
-@media (min-width: 800px) {
+@media (min-width: 760px) {
   body {
     font-size: 16px;
-  }
-  footer {
-    position: fixed;
-  }
-  .finish {
-    width: 30%;
-  }
-  .continue {
-    width: 30%;
   }
   #logo {
     height: 70px;
   }
+  .main-1 {
+    margin: 6vh auto;
+  }
   .choice-wrapper {
-    height: 30vw;
-    width: 30vw;
-    margin: 4vh;
-  }
-  .choice-wrapper::before {
-    content: "";
-    width: 23vw;
-    height: 23vw;
-  }
-  .footer {
-    flex-direction: row;
-    flex-wrap: nowrap;
+    height: 18vh;
+    width: 18vh;
+    margin: 4vh 0;
   }
   .button,
   .close {
@@ -357,24 +342,5 @@ footer {
   }
   .footer * {
     margin: 0.5rem;
-  }
-}
-@media (min-width: 1000px) {
-  .main {
-    max-width: 650px;
-    margin: 0.5rem auto;
-  }
-  .main-1 {
-    background-size: 50% 50%;
-  }
-  .choice-wrapper {
-    height: 20vh;
-    width: 20vh;
-    margin: 5vw 7vw;
-  }
-  .choice-wrapper::before {
-    content: "";
-    width: 16vh;
-    height: 16vh;
   }
 }
