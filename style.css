@@ -26,7 +26,7 @@ header {
   align-items: center;
   width: 90vw;
   max-width: 550px;
-  padding: 2.5% 2%;
+  padding: 2.5%;
   margin: 3vh auto;
 }
 #logo {
@@ -150,7 +150,7 @@ header p {
   width: 120%;
   height: 120%;
 }
-.choice-wrapper img:active,
+.choice-wrapper:active,
 .button:active,
 .main-btn:active {
   animation: button 0.5s linear;
@@ -190,15 +190,15 @@ header p {
   margin-top: 2rem;
 }
 .finish {
-  width: 50%;
+  width: 55%;
   display: none;
   align-items: stretch;
 }
 .end {
   text-align: center;
-  font-size: 2.3rem;
+  font-size: 2.5rem;
   display: block;
-  font-weight: 700;
+  font-weight: 900;
 }
 .main-btn {
   transition: 0.6s;
@@ -209,12 +209,12 @@ header p {
   text-decoration: none;
   color: black;
   text-align: center;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   font-size: 1rem;
   font-weight: 600;
 }
 .continue {
-  width: 40%;
+  width: 60%;
   margin-top: 2rem;
 }
 /* alert */
@@ -324,6 +324,9 @@ footer {
 @media (min-width: 760px) {
   body {
     font-size: 16px;
+  }
+  .continue{
+    width: 40%;
   }
   #logo {
     height: 70px;
