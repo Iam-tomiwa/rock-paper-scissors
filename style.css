@@ -82,24 +82,24 @@ header p {
   justify-content: center;
 }
 .rotate {
-  animation: spin 0.7s ease-in ;
+  animation: spin 0.7s ease-out;
   opacity: 0.7;
 }
 @keyframes spin {
   to {
     opacity: 0;
-    transform: rotate(400deg);
+    transform: rotate(380deg);
   }
 }
 .fade {
-  animation: fade 0.5s ease-out;
+  animation: fade 0.5s ease-in;
 }
 @keyframes fade {
   from {
     opacity: 0.5;
   }
   to {
-    transform: scale(0.3);
+    transform: scale(0.35);
     opacity: 0;
   }
 }
@@ -113,8 +113,11 @@ header p {
   margin: 1.5rem 7vw;
   position: relative;
 }
-.selectSection .choice-wrapper img {
+.selectSection .choice-wrapper {
   cursor: url("images/paper.svg"), pointer;
+}
+.choice-wrapper img{
+  cursor: auto;
 }
 .choice-wrapper::before {
   content: "";
@@ -156,13 +159,13 @@ header p {
 .main-btn:active {
   animation: button 0.5s linear;
 }
-.button,
-.close {
-  cursor: pointer;
-}
-.button:hover,
+.rules-btn:hover,
 .main-btn:hover {
   color: #db1212;
+}
+.rules-btn,
+.close {
+  cursor: pointer;
 }
 .fa-heart {
   animation: button 0.5s ease-in-out infinite;
@@ -170,13 +173,13 @@ header p {
 }
 @keyframes button {
   from {
-    transform: scale(0.85);
+    transform: scale(0.95);
   }
   to {
     transform: scale(1);
   }
 }
-.button {
+.rules-btn {
   transition: 0.6s;
   font-size: 1rem;
   border-radius: 7px;
@@ -202,7 +205,7 @@ header p {
 }
 .end {
   text-align: center;
-  font-size: 2.6rem;
+  font-size: 2.5rem;
   display: block;
   font-weight: 900;
 }
@@ -310,7 +313,6 @@ footer {
   bottom: 0.3rem;
 }
 .footer {
-  z-index: -1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -331,11 +333,11 @@ footer {
   body {
     font-size: 16px;
   }
-  .continue{
-    width: 40%;
-  }
   #logo {
     height: 70px;
+  }
+  .continue {
+    width: 40%;
   }
   .main-1 {
     margin: 6vh auto;
@@ -345,7 +347,8 @@ footer {
     width: 18vh;
     margin: 4vh 0;
   }
-  .footer * {
+  .footer{
+    z-index: -1;
     margin: 0.5rem;
   }
 }

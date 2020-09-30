@@ -4,11 +4,11 @@ const query = (e) => document.querySelector(e);
 
 //grab all my elements here
 const rules = query(".rules");
-const button = query(".button");
+const rulesBtn = query(".rules-btn");
 const overlay = query(".overlay");
 const close = getId("close");
+const userChoice = document.querySelectorAll('.choice-btn .choice-wrapper')
 const selectSection = query(".selectSection");
-const userChoice = document.querySelectorAll(".userChoice");
 const userPicked = query(".user-picked");
 const computerSelect = query(".computerSelect");
 const resultSection = query(".main-2");
@@ -18,7 +18,7 @@ const endResult = query(".end");
 const msg = query(".msg");
 
 //rules display buttons
-button.addEventListener("click", (e) => {
+rulesBtn.addEventListener("click", (e) => {
   rules.style.display = "flex";
   overlay.style.display = "block";
 });
@@ -32,7 +32,7 @@ let score = getId("score"); //grab score from score board
 
 //displays selected elements
 function gameOn(e) {
-  userPicked.parentElement.classList.add(e.target.alt);
+  userPicked.parentElement.classList.add(e.target.firstElementChild.alt);
   resultSection.classList.remove("fade");
   selectSection.classList.add("rotate");
   let currentScore = 3; // a variable to keep my score for later edit
@@ -40,8 +40,8 @@ function gameOn(e) {
   setTimeout(() => {
     selectSection.style.display = "none";
     resultSection.style.display = "flex";
-    userPicked.src = e.target.src;
-    userPicked.alt = e.target.alt;
+    userPicked.src = e.target.firstElementChild.src;
+    userPicked.alt = e.target.firstElementChild.alt;
     selectSection.classList.remove("rotate");
   }, 700); //a timeout to enable the rotate animation finish
 
