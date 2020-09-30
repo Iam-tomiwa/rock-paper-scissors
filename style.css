@@ -155,6 +155,10 @@ header p {
 .main-btn:active {
   animation: button 0.5s linear;
 }
+.button,
+.close {
+  cursor: pointer;
+}
 .button:hover,
 .main-btn:hover {
   color: #db1212;
@@ -178,6 +182,7 @@ header p {
   border: 1.5px solid var(--border);
   padding: 0.4rem 1.5rem;
   color: white;
+  margin-right: 1.5rem;
 }
 .result {
   min-height: 60%;
@@ -302,9 +307,9 @@ footer {
   position: fixed;
   left: 0;
   bottom: 0.3rem;
-  z-index: -1;
 }
 .footer {
+  z-index: -1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -338,10 +343,6 @@ footer {
     height: 18vh;
     width: 18vh;
     margin: 4vh 0;
-  }
-  .button,
-  .close {
-    cursor: pointer;
   }
   .footer * {
     margin: 0.5rem;
