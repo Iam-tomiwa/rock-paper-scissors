@@ -32,7 +32,9 @@ let score = getId("score"); //grab score from score board
 
 //displays selected elements
 function gameOn(e) {
-  userPicked.parentElement.classList.add(e.target.firstElementChild.alt);
+  const userAlt = e.target.firstElementChild?.alt || e.target.alt;
+  const userSrc = e.target.firstElementChild?.src || e.target.src;
+  userPicked.parentElement.classList.add(userAlt);
   resultSection.classList.remove("fade");
   selectSection.classList.add("rotate");
   let currentScore = 3; // a variable to keep my score for later edit
@@ -40,8 +42,8 @@ function gameOn(e) {
   setTimeout(() => {
     selectSection.style.display = "none";
     resultSection.style.display = "flex";
-    userPicked.src = e.target.firstElementChild.src;
-    userPicked.alt = e.target.firstElementChild.alt;
+    userPicked.src = userSrc;
+    userPicked.alt = userAlt;
     selectSection.classList.remove("rotate");
   }, 700); //a timeout to enable the rotate animation finish
 
@@ -49,7 +51,7 @@ function gameOn(e) {
 
   //the brain processing of the game is on this function!
   function computer() {
-    let randomNumber = Math.floor(Math.random() * Math.floor(3)); //generate random number from 0-3
+    let randomNumber = Math.floor(Math.random() * 3); //generate random number from 0-2
     switch (randomNumber) {
       case 0:
         // code
@@ -76,8 +78,6 @@ function gameOn(e) {
       (randomNumber === 1 && userPicked.alt === "rock") ||
       (randomNumber === 2 && userPicked.alt === "scissors")
     ) {
-      currentScore = currentScore;
-      score.innerHTML = score.innerHTML;
       userText.style.color = "hsl(39, 89%, 49%)"; //keep scores as a draw
     } else if (
       (randomNumber === 0 && userPicked.alt === "scissors") ||
