@@ -113,7 +113,7 @@ header p {
   margin: 1.5rem 7vw;
   position: relative;
 }
-.selectSection .choice-wrapper {
+.selectSection .choice-wrapper, .selectSection .choice-wrapper img {
   cursor: url("images/paper.svg"), pointer;
 }
 .choice-wrapper img{
